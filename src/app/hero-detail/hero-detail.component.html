@@ -1,0 +1,21 @@
+<h1>Heroes Academy</h1>
+
+<div *ngIf="hero">
+
+  <h3>Chosen one!</h3>
+  <div>Identificator: {{hero.id}}</div>
+  <div>Name: <b>{{hero.name}}</b></div>
+
+  <br/>
+
+  <div>
+    <label for="hero-name">Change hero name: </label>
+    <input id="hero-name" [(ngModel)]="hero.name" placeholder="Hero name"/>
+    <button class="updateName" title="update hero name" (click)="updateHeroName(hero.id, hero.name)">Update</button>
+  </div>
+
+  <br/>
+
+  <button (click)="goBack()">I need to be going now</button>
+
+</div>

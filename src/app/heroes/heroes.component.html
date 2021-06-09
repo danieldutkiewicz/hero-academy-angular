@@ -14,7 +14,9 @@
 <div class="hero-container">
   <ul *ngFor="let hero of heroes">
     <li>
-      {{hero.name}}
+      <a routerLink="/detail/{{hero.id}}">
+        {{hero.name}}
+      </a>
       <button class="delete" title="delete hero" (click)="deleteHero(hero)">x</button>
     </li>
   </ul>

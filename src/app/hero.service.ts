@@ -12,6 +12,8 @@ export class HeroService {
     private http: HttpClient) { }
 
     private getAllHeroesURL = 'http://localhost:8000/api/heroes';
+    private getHeroById = 'http://localhost:8000/api/heroes/';
+    private updateHero = 'http://localhost:8000/api/heroes/update/';
     private createNewHeroURL = 'http://localhost:8000/api/heroes/create/';
     private deleteHeroURL = 'http://localhost:8000/api/heroes/delete/';
 
@@ -21,6 +23,14 @@ export class HeroService {
 
     getHeroes(): Observable<Hero[]> {
       return this.http.get<Hero[]>(this.getAllHeroesURL);
+    }
+
+    getHero(id: number): Observable<Hero> {
+      return this.http.get<Hero>(this.getHeroById + id);
+    }
+
+    updateHeroName(id: number, newName: string): Observable<Hero> {
+      return this.http.put<Hero>(this.updateHero + id + '/' + newName, this.httpOptions);
     }
 
     addHero(hero: Hero): Observable<Hero> {
